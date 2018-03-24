@@ -7,16 +7,13 @@ class MarsRover
   end
 
 # define all behaviors
-  def read_instructions(string)
+  def read_instructions(string) # "LMLMLMLM"
     # should accept an instruction and decide whether to tell the rover to move or turn. It simply delegates to more specific behaviour.
     string = string.split('')
     string.each do |letter|
       if letter
-        # if @direction is N && direction is R OR if @direction is S && direction is L change @direction to E
-        # else if @direction is E && direction is R OR @direction is W && direction is L change @direction to S
-        # else if @direction is S && direction is R OR @direction is N and ditrection is L change @direction to W
-        #else if @direction  is W && direction is R OR @direction is E && direction is L change @direction to N
-        #else return "Error - Check Instructions"
+        #if letter is M --- > move()
+        #else if letter is L or R  ----> turn(letter)
       end
     end
 
@@ -30,6 +27,11 @@ class MarsRover
 
   def turn(direction)
     # affects the direction of the rover. Depending on the current direction of the rover, the new direction will be determined with either turning L or R.
+
+    # if @direction is N && letter is R OR if @direction is S && letter is L change @direction to E
+    # else if @direction is E && letter is R OR @direction is W && letter is L change @direction to S
+    # else if @direction is S && letter is R OR @direction is N and letter is L change @direction to W
+    #else if @direction  is W && letter is R OR @direction is E && letter is L change @direction to N
   end
 
 end
