@@ -14,10 +14,9 @@ class MarsRover
       if letter
         #if letter is M --- > move()
         #else if letter is L or R  ----> turn(letter)
+        #else  Return "Error"
       end
     end
-
-
   end
 
   def move()
@@ -26,12 +25,20 @@ class MarsRover
   end
 
   def turn(direction)
+
     # affects the direction of the rover. Depending on the current direction of the rover, the new direction will be determined with either turning L or R.
 
-    # if @direction is N && letter is R OR if @direction is S && letter is L change @direction to E
-    # else if @direction is E && letter is R OR @direction is W && letter is L change @direction to S
-    # else if @direction is S && letter is R OR @direction is N and letter is L change @direction to W
-    #else if @direction  is W && letter is R OR @direction is E && letter is L change @direction to N
+    # if @direction is N && letter is R OR if @direction is S && letter is L
+      # change @direction to E
+
+    # else if @direction is E && letter is R OR @direction is W && letter is L
+      # change @direction to S
+
+    # else if @direction is S && letter is R OR @direction is N and letter is L
+      # change @direction to W
+
+    # else if @direction  is W && letter is R OR @direction is E && letter is L
+      # change @direction to N
   end
 
 end
