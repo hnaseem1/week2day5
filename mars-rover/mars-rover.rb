@@ -9,19 +9,41 @@ class MarsRover
 # define all behaviors
   def read_instructions(string) # "LMLMLMLM"
     # should accept an instruction and decide whether to tell the rover to move or turn. It simply delegates to more specific behaviour.
+
     string = string.split('')
+
     string.each do |letter|
-      if letter
+
+      if letter == "M"
         #if letter is M --- > move()
+        move()
+
+      elsif letter == "L" || letter == "R"
         #else if letter is L or R  ----> turn(letter)
+        turn(letter)
+
+      else
         #else  Return "Error"
+        "Error"
       end
     end
   end
 
   def move()
     # affects the position of the rover. Depending on current direction and position, you'll need to update the x or y coordinates.
-    x_axis
+
+    if @direction == "N"
+      @x_axis += 1
+    elsif @direction == "E"
+       @y_axis += 1
+    elsif @direction == "W"
+      @x_axis -= 1
+    elsif @direction == "S"
+      @y_axis -= 1
+    else
+      "Error"
+    end
+
   end
 
   def turn(direction)
@@ -30,15 +52,38 @@ class MarsRover
 
     # if @direction is N && letter is R OR if @direction is S && letter is L
       # change @direction to E
+      if (@direction == "N" && direction == "R") || (@direction == "S" && direction == "L")
+        @direction = "E"
 
     # else if @direction is E && letter is R OR @direction is W && letter is L
       # change @direction to S
+    elsif (@direction == "E" && direction == "R") || (@direction == "W" && direction == "L")
+        @direction = "S"
 
     # else if @direction is S && letter is R OR @direction is N and letter is L
       # change @direction to W
+      elsif (@direction == "S" && direction == "R" )|| (@direction == "N" && direction == "L")
+        @direction = "W"
 
     # else if @direction  is W && letter is R OR @direction is E && letter is L
       # change @direction to N
+      elsif (@direction == "W" && direction == "R") || (@direction == "E" && direction == "L")
+        @direction = "N"
+
+    end
   end
 
+  def current_position
+
+    p "#{@x_axis} #{@y_axis} #{@direction}"
+
+  end
 end
+
+
+curiosity = MarsRover.new(8, 2, "W")
+curiosity.current_position
+curiosity.read_instructions("LMLMRM")
+curiosity.current_position
+curiosity.read_instructions("LMRMLMRMLMLM")
+curiosity.current_position
