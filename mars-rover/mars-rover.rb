@@ -41,7 +41,7 @@ class MarsRover
     elsif @direction == "S"
       @y_axis -= 1
     else
-      "Error"
+      @direction = "Error"
     end
 
   end
@@ -62,7 +62,7 @@ class MarsRover
 
     # else if @direction is S && letter is R OR @direction is N and letter is L
       # change @direction to W
-      elsif (@direction == "S" && direction == "R" )|| (@direction == "N" && direction == "L")
+      elsif (@direction == "S" && direction == "R" ) || (@direction == "N" && direction == "L")
         @direction = "W"
 
     # else if @direction  is W && letter is R OR @direction is E && letter is L
@@ -89,5 +89,5 @@ curiosity.read_instructions("LMLMRM")
 curiosity.current_position
 
 # Another Result to Varify
-curiosity.read_instructions("LMRMLMRMLMLM")
+curiosity.read_instructions("RMLM")
 curiosity.current_position
