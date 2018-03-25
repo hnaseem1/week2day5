@@ -80,10 +80,14 @@ class MarsRover
   end
 end
 
-
+#displays the initial position
 curiosity = MarsRover.new(8, 2, "W")
 curiosity.current_position
+
+# display the postion after above instruction
 curiosity.read_instructions("LMLMRM")
 curiosity.current_position
+
+# Another Result to Varify
 curiosity.read_instructions("LMRMLMRMLMLM")
 curiosity.current_position
